@@ -1,5 +1,10 @@
-# SG Calibrator
+# Archival Image Calibrator
 
+# Fixing the human errors of digitisation: an open-source tool for FADGI colour and tone calibration
+
+In celebration of World Digital Preservation Day here is an open-source tool for FADGI colour and tone calibration of digitised images.
+
+Every digitisation team knows the gap between a perfect setup on paper and a real shoot day: a light fixture nudged out of position, exposure changed between shots, a chart that was never quite re-measured. Our team built a tool to deal with exactly that, and we are sharing it so other archivists can use it on their own collections.
 Fits a tone, white-balance and colour correction from a photo of the **ColorChecker SG** and checks it against
 **FADGI** limits the way Open DICE does. Built for Digital Back capture workflows, but works on any TIFF with an embedded ICC profile.
 
