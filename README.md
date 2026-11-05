@@ -1,7 +1,7 @@
 # SG Calibrator
 
 Fits a tone, white-balance and colour correction from a photo of the **ColorChecker SG** and checks it against
-**FADGI** limits the way Open DICE does. Built for Hasselblad / Phocus capture workflows, but works on any TIFF with an embedded ICC profile.
+**FADGI** limits the way Open DICE does. Built for Digital Back capture workflows, but works on any TIFF with an embedded ICC profile.
 
 ## Set up (once)
 1. Install Python 3 from python.org (tick *Add python.exe to PATH* and keep *tcl/tk* selected).
@@ -9,7 +9,7 @@ Fits a tone, white-balance and colour correction from a photo of the **ColorChec
 3. Double-click `run_gui.bat`.
 
 ## When exposure differs between shots: chart in every frame (recommended for the Golden Thread workflow)
-Each image is corrected from the reference chart **inside that image**, so different shutter / aperture / ISO / Phocus
+Each image is corrected from the reference chart **inside that image**, so different shutter / aperture / ISO 
 rendering between shots is absorbed per image.
 1. Put the chart in the frame (the whole chart must be visible; any size, position or rotation). Chart definitions live in
    the `charts` folder - see `charts/README.md` for how to add your target (the Golden Thread files are not bundled).
@@ -25,8 +25,8 @@ highlights, near-black shadows, exposure more than ~0.7 stop off, and weak chart
 Limits: clipped highlights cannot be recovered; large corrections amplify noise; tests so far used simulated exposure changes plus a few real frames; validate on your own bracketed shots.
 
 ## Each session - fastest way (one step)
-1. Export all of the session's TIFFs from Phocus into one folder (SG shot included, same light/lens/exposure/LCC).
-2. In the window choose the `Profile_ColorCheckerSG` xlsx (and the Open DICE config sheet, material and star level),
+1. Export all of the session's TIFFs from your software of choice into one folder (SG shot included, same light/lens/exposure/LCC).
+2. In the window choose the `Profile_ColorCheckerSG` xlsx (and the Open DICE config sheet, material and star level) you can get these files from https://www.digitizationguidelines.gov/guidelines/digitize-OpenDice.html,
    then press **One step: select ALL session images...** and select every TIFF.
 3. It looks through the files, finds the one containing the ColorChecker SG, fits the correction from it, and corrects
    every selected image. Everything lands in a `sgcal_output` folder next to the SG shot: `*_corrected.tif` for each image,
@@ -36,7 +36,7 @@ Limits: clipped highlights cannot be recovered; large corrections amplify noise;
    Command line: `py -3 sgcal.py session *.tif --profile Profile_ColorCheckerSG.xlsx --config Config_materials.xlsx`
 
 ## Each session - step by step
-1. Shoot the SG with the **same light, lens, aperture, exposure and LCC** as the session. Export a TIFF from Phocus
+1. Shoot the SG with the **same light, lens, aperture, exposure and LCC** as the session. Export a TIFF
    (8 or 16-bit, Adobe RGB / sRGB / ProPhoto, **no extra tone curve or sharpening**). Cropping is optional - the chart
    is found automatically, even rotated or upside down.
 2. In the window: choose the SG TIFF, `Profile_ColorCheckerSG` xlsx and (optionally) the Open DICE `Config_materials` xlsx,
@@ -69,7 +69,7 @@ move toward the SG's own reference L* inside the tone band: raise it for better 
   (focus, light, LCC) and are not changed.
 * The correction is valid for the lighting, lens and exposure of the SG shot. Re-shoot the SG when any of them changes.
 * Results are fitted on the SG and judged on the SG; Open DICE does the same, but the correction is not proof of
-  accuracy on other targets. Keep the original capture settings close to correct - the closer Phocus is to right,
+  accuracy on other targets. Keep the original capture settings close to correct - the closer your raw image is to right,
   the gentler (and safer) the correction.
 * Predictions matched Open DICE to about 0.02 on the mean and 90th-percentile dE of a test file; keep an eye on any
   result flagged "close to limit".
