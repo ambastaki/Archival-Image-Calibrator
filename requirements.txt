@@ -1,0 +1,7 @@
+numpy
+scipy
+tifffile
+imagecodecs
+pillow
+openpyxl
+opencv-python-headless
